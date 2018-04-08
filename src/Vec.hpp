@@ -7,7 +7,7 @@
 
 #pragma once
 #include "ofMain.h"
-#include "Vec.hpp"
+#include "Position.hpp"
 
 //vector class that stores a position, angle, and magnitude
 
@@ -18,16 +18,16 @@ public:
     ofVec2f p;
     
     void setup(float _tx,float _ty,float _angle,float _magnitude);
-    void setup(ofVec2f _pos,float _ty,float _angle,float _magnitude);
+    void setup(ofVec2f _pos,float _angle,float _magnitude);
     void setup(Vec _v);
-    ofVec2f endPoint();//returns the endpoint of the vector as type position
+    Position endPoint();//returns the endpoint of the vector as type position
     Vec add(Vec _v);//returns a vector addition
     Vec add(float _angle,float _magnitude);//returns a vector addition
     Vec sub(Vec _v);//returns a vector subration (unimplemented)
     void setStart(ofVec2f _np);//sets a new starting point for the vector
     void setEnd(ofVec2f _np);//sets a new ending point for the vector
     void setEnd(float _px,float _py);//sets a new ending point for the vector
-    ofVec2f displace(ofVec2f _p,float _angle,float _magnitude);//displaces a position by an angle and a magnitude, then returns it
+    Position displace(ofVec2f _p, float _angle, float _magnitude);//displaces a position by an angle and a magnitude, then returns it
     float getHeading(ofVec2f _p1, ofVec2f p2);//gets the absolute heading between one position and another relative to the first
     float dist(ofVec2f _p1, ofVec2f _p2);
     float normalizeHeading(float _ang);//normalizes a heading between 0 and 180
@@ -48,7 +48,7 @@ public:
  float a,m;
  Position p;
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Vector(){}
  Vector(float tx,float ty,float angle,float magnitude)
  {
@@ -57,7 +57,7 @@ public:
  m=magnitude;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Vector(Position pos,float angle,float magnitude)
  {
  p=new Position(pos);
@@ -65,7 +65,7 @@ public:
  m=magnitude;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Vector(Vector v)
  {
  p=new Position(v.p);
@@ -73,13 +73,13 @@ public:
  m=v.m;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Position endPoint()   //returns the endpoint of the vector as type position
  {
  return displace(p,a,m);
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Vector add(Vector v)       //returns a vector addition
  {
  Position newEnd = new Position(endPoint().displace(v.a, v.m));

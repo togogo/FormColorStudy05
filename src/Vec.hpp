@@ -7,6 +7,7 @@
 
 #pragma once
 #include "ofMain.h"
+#include "ofMath.h"
 #include "Position.hpp"
 
 //vector class that stores a position, angle, and magnitude
@@ -16,6 +17,7 @@ public:
     float a;
     float m;
     ofVec2f p;
+    float conversionArc = 180/PI;
     
     void setup(float _tx,float _ty,float _angle,float _magnitude);
     void setup(ofVec2f _pos,float _angle,float _magnitude);
@@ -88,7 +90,7 @@ public:
  return newVector;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Vector add(float angle,float magnitude)                //returns a vector addition
  {
  Vector v = new Vector(p,angle,magnitude);
@@ -98,26 +100,26 @@ public:
  return newVector;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Vector sub(Vector v)                                   //returns a vector subration (unimplemented)
  {
  return v;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  void setStart(Position np)                             //sets a new starting point for the vector
  {
  p=np;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  void setEnd(Position np)                               //sets a new ending point for the vector
  {
  a=getHeading(p,np);
  m=dist(p.x,p.y,np.x,np.y);
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  void setEnd(float px,float py)                         //sets a new ending point for the vector
  {
  Position np=new Position(px,py);
@@ -126,7 +128,7 @@ public:
  }
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  Position displace(Position p,float angle,float magnitude) //displaces a position by an angle and a magnitude, then returns it
  {
  Position newP=new Position(p);
@@ -139,7 +141,7 @@ public:
  return newP;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  float getHeading(Position p1,Position p2)                //gets the absolute heading between one position and another relative to the first
  {
  float angle=atan2(p2.y-p1.y,p2.x-p1.x);
@@ -149,13 +151,13 @@ public:
  return angle;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  float dist(Position p1, Position p2)
  {
  return dist(p1.x,p1.y,p2.x,p2.y);
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  float normalizeHeading(float ang)                        //normalizes a heading between 0 and 180
  {
  while(ang >= 360)ang -= 360;
@@ -163,7 +165,7 @@ public:
  return ang;
  }
  
- *DECLARED
+ *DECLARED & IMPLEMENTED
  void drawVector(Vector v)                                //draws a vector in white
  {
  colorMode(RGB,255,255,255);

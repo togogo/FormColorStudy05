@@ -117,23 +117,53 @@ void Vec::drawVector(Vec _v){
 }
 
 void Vec::drawVector(Vec _v,float _s){
-    
+    ofSetColor(255);
+    ofNoFill();
+    ofDrawCircle(_v.p.x, _v.p.y, 5);
+    Vec temp;
+    temp.setup(_v);
+    temp.m*=_s;
+    Position e=temp.endPoint();
+    ofDrawLine(_v.p.x, _v.p.y, e.x, e.y);
 }
 
-void Vec::drawVector(Vec _v, int r, int _g, int _b, float _s){
+void Vec::drawVector(Vec _v, int _r, int _g, int _b, float _s){
+    ofSetColor(_r, _g, _b);
+    ofNoFill();
+    ofDrawCircle(_v.p.x, _v.p.y, 5);
+    Vec temp;
+    temp.setup(_v);
+    temp.m*=_s;
+    Position e=temp.endPoint();
+    ofDrawLine(_v.p.x, _v.p.y, e.x, e.y);
     
 }
 
 void Vec::drawVector(Vec _v, ofColor _c, float _s){
-    
+    ofSetColor(_c);
+    ofNoFill();
+    ofDrawCircle(_v.p.x, _v.p.y, 5);
+    Vec temp;
+    temp.setup(_v);
+    temp.m*=_s;
+    Position e=temp.endPoint();
+    ofDrawLine(_v.p.x, _v.p.y, e.x, e.y);
 }
 
-void Vec::drawVector(Vec _v, int r, int _g, int _b){
-    
+void Vec::drawVector(Vec _v, int _r, int _g, int _b){
+    ofSetColor(_r, _g, _b);
+    ofNoFill();
+    ofDrawCircle(_v.p.x, _v.p.y, 5);
+    Position e=_v.endPoint();
+    ofDrawLine(_v.p.x, _v.p.y, e.x, e.y);
 }
 
 void Vec::drawVector(Vec _v, ofColor _c){
-    
+    ofSetColor(_c);
+    ofNoFill();
+    ofDrawCircle(_v.p.x, _v.p.y, 5);
+    Position e=_v.endPoint();
+    ofDrawLine(_v.p.x, _v.p.y, e.x, e.y);
 }
 
 

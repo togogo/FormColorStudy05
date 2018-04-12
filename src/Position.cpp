@@ -17,6 +17,11 @@ void Position::setup(Position _p){
     y = _p.y;
 }
 
+void Position::setup(ofVec2f _p){
+    x = _p.x;
+    y = _p.y;
+}
+
 Position Position::displace(float _angle,float _magnitude) {
     Position newP;
     newP.setup(x,y);

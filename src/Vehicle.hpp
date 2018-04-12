@@ -43,6 +43,7 @@ public:
     void getDistance();
     ofVec2f compare(Position m, Position n);//changed return type to ofvec2f. Originally Position.
     void rapController();
+    float constrain(float _x, float _a, float _b);//constrains x between a and b
     
     
     

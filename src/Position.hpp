@@ -14,5 +14,6 @@ public:
     
     void setup(float _x, float _y);
     void setup(Position _p);
+    void setup(ofVec2f _p);
     Position displace(float _angle,float _magnitude);//returns the position displaced by an angle and distance
 };

@@ -33,24 +33,42 @@ void Vehicle::setup(ofVec2f _p,float _angle,float _magnitude, float _m, float _m
 }
 
 void Vehicle::update(){
-    /*
-    steer = seek();                                       //using seek behavior against target
-    acceleration=new Vector(steer);                     //apply the steering force
-    acceleration.p=location;
-    acceleration.m=steer.m/mass;                        //acceleration=force / mass
-    if(velocity.m>0)                                    //prevent 0 velocity rotation
-        velocity=velocity.add(acceleration);              //time-step force to the velocity vector
-    velocity.m=constrain(velocity.m,minSpeed,maxSpeed);        //constrain the velocity vector to maximum vehicle speed
-    location=location.displace(velocity.a,velocity.m);  //set new position based on velocity vector
+    
+    //the if statement part might be mistaken...in case of error, fix here...
+    
+    steer = seek();//using seek behavior against target
+    acceleration.setup(steer);//apply the steering force
+    acceleration.p = location;
+    acceleration.m = steer.m / mass;//acceleration=force / mass
+    if(velocity.m > 0 ){ //prevent 0 velocity rotation
+        velocity = velocity.add(acceleration);//time-step force to the velocity vector
+    }
+    velocity.m = constrain(velocity.m, minSpeed, maxSpeed);//constrain the velocity vector to max vehicle speed
+    Position tempPos;
+    tempPos.setup(location);
+    tempPos = tempPos.displace(velocity.a,velocity.m);  //set new position based on velocity vector
+    location.set(tempPos.x, tempPos.y);
     velocity.p=location;
-     */
+    
+}
+
+float Vehicle::constrain(float _x, float _a, float _b){
+        if(_x < _a) {
+            return _a;
+        }
+        else if(_b < _x) {
+            return _b;
+        }
+        else
+            return _x;
 }
 
 Vec Vehicle::seek(){
-    /*
+    
      //desired vector would be a straight line from the vehicle to the target
-     desired=new Vector(location,getHeading(location,controller.p),dist(location,controller.p));
-     Vector desiredTruncate=new Vector(desired);
+     desired.setup(location, getHeading(location,controller.p), dist(location,controller.p));
+    Vec desiredTruncate.setup(desired);
+    /*
      //desiredTruncate.m=dist(desired.p,desired.endPoint())/(10/mass);
      desiredTruncate.m = dist(desired.p, desired.endPoint())/10;
      //desiredTruncate.m=maxSpeed*.4;    //alternative truncation
@@ -61,6 +79,7 @@ Vec Vehicle::seek(){
      steer.m=constrain(desired.m,0,maxAccel);
      return steer;
      */
+    
     
 }
 

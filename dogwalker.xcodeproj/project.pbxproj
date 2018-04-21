@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD126631208B3FD600D7559F /* Modifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD12662F208B3FD600D7559F /* Modifier.cpp */; };
 		BDB7F4572078FBB700D72AAA /* Vec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB7F4552078FBB700D72AAA /* Vec.cpp */; };
 		BDB7F45A2078FBC500D72AAA /* Vehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB7F4582078FBC500D72AAA /* Vehicle.cpp */; };
 		BDB7F45D207A7A2500D72AAA /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB7F45B207A7A2500D72AAA /* Position.cpp */; };
@@ -45,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD12662F208B3FD600D7559F /* Modifier.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Modifier.cpp; sourceTree = "<group>"; };
+		BD126630208B3FD600D7559F /* Modifier.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Modifier.hpp; sourceTree = "<group>"; };
 		BDB7F4552078FBB700D72AAA /* Vec.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vec.cpp; sourceTree = "<group>"; };
 		BDB7F4562078FBB700D72AAA /* Vec.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vec.hpp; sourceTree = "<group>"; };
 		BDB7F4582078FBC500D72AAA /* Vehicle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vehicle.cpp; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				BDB7F4592078FBC500D72AAA /* Vehicle.hpp */,
 				BDB7F45B207A7A2500D72AAA /* Position.cpp */,
 				BDB7F45C207A7A2500D72AAA /* Position.hpp */,
+				BD12662F208B3FD600D7559F /* Modifier.cpp */,
+				BD126630208B3FD600D7559F /* Modifier.hpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -222,6 +227,7 @@
 			files = (
 				BDB7F45A2078FBC500D72AAA /* Vehicle.cpp in Sources */,
 				BDB7F4572078FBB700D72AAA /* Vec.cpp in Sources */,
+				BD126631208B3FD600D7559F /* Modifier.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				BDB7F45D207A7A2500D72AAA /* Position.cpp in Sources */,

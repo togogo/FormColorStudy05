@@ -94,7 +94,20 @@ float Vec::getHeading(ofVec2f _p1, ofVec2f _p2){
     return angle;
 }
 
+float Vec::getHeading(Position _p1, Position _p2){
+    float angle = atan2(_p2.y - _p1.y, _p2.x - _p1.x);
+    angle= -1 * angle * conversionArc;
+    if(_p2.y >= _p1.y){
+        angle = 360 - (angle*-1);
+    }
+    return angle;
+}
+
 float Vec::dist(ofVec2f _p1, ofVec2f _p2){
+    return ofDist(_p1.x, _p1.y, _p2.x, _p2.y);
+}
+
+float Vec::dist(Position _p1, Position _p2){
     return ofDist(_p1.x, _p1.y, _p2.x, _p2.y);
 }
 

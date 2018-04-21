@@ -66,32 +66,48 @@ float Vehicle::constrain(float _x, float _a, float _b){
 Vec Vehicle::seek(){
     
      //desired vector would be a straight line from the vehicle to the target
-     desired.setup(location, getHeading(location,controller.p), dist(location,controller.p));
-    Vec desiredTruncate.setup(desired);
-    /*
+    Vec tempVec;
+    desired.setup(location, tempVec.getHeading(location,controller.p), tempVec.dist(location,controller.p));
+    
+    Vec desiredTruncate;
+    desiredTruncate.setup(desired);
+    
      //desiredTruncate.m=dist(desired.p,desired.endPoint())/(10/mass);
-     desiredTruncate.m = dist(desired.p, desired.endPoint())/10;
+    
+    ofVec2f tempDesiredEndPoint;
+    Position tempPos;
+    tempPos = desired.endPoint();
+    tempDesiredEndPoint.set(tempPos.x, tempPos.y);
+    desiredTruncate.m = tempVec.dist(desired.p, tempDesiredEndPoint)/10;
+    //wait...desired.p is ofVec2f
+    //oh yeah, so tem
+    
      //desiredTruncate.m=maxSpeed*.4;    //alternative truncation
      //drawVector(desiredTruncate);
      //steer the currenty velocity towards a particular point on the desired vector
-     Vector steer=new Vector(velocity.endPoint(),getHeading(velocity.endPoint(),desiredTruncate.endPoint()),dist(velocity.endPoint(),desiredTruncate.endPoint()));
+    
+    Vec steer;
+    Position tempSteerPos;
+    tempSteerPos = velocity.endPoint();
+    steer.setup(tempSteerPos.x, tempSteerPos.y, tempVec.getHeading(velocity.endPoint(), desiredTruncate.endPoint()), tempVec.dist(velocity.endPoint(), desiredTruncate.endPoint()));
+    
      //constrain the steering to maximum vehicle force
-     steer.m=constrain(desired.m,0,maxAccel);
+     steer.m = constrain(desired.m, 0, maxAccel);
      return steer;
-     */
+    
     
     
 }
 
 void Vehicle::draw(){
-    /*
+    
      //drawVehicle();
      //drawController();
      //drawAllVectors();
      updateController();
      drawController();
      //rapController();
-     */
+    
 }
 
 void Vehicle::drawAllVectors(){
@@ -161,12 +177,15 @@ void Vehicle::updateController(){
 }
 
 void Vehicle::getDistance(){
-    /*
+    
      for(int i = 1; i<contNum; i++) {
-     d[i].x = dist(this.location, m[i].p);
+    /*
+     //oh, ok I get it... another new class here.... Modifier...
+     d[i].x = ofDist(location.x, location.y, m[i].p.x, m[i].p.y);
      d[i].y = m[i].getId();
-     }
      */
+     }
+
 }
 
 ofVec2f Vehicle::compare(Position m, Position n){

@@ -46,7 +46,7 @@ public:
     float constrain(float _x, float _a, float _b);//constrains x between a and b
     
     
-    
+    //Modifier m[] = new Modifier[contNum]; //there is still this guy I need to work on.
     
     
     

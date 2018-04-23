@@ -7,15 +7,49 @@
 
 #pragma once
 #include "ofMain.h"
+#include "Position.hpp"
 
 class Modifier{
 
+public:
+    float x;//x position
+    float y;//y position
+    Position p;//position data, combination of xy
+    float r;//radius that affects the Agents
+    int gridNum = 900;//max number  of Agents to search
+    
+    vector<Position> d;//alternate of: "Position d[] = new Position[gridNum];"
+    vector<Position> temp;
+    vector<Position> close;
+    Position nullPos;
+    
+    /*
+    Position d[] = new Position[gridNum];//for storing the distance of
+    Position temp[] = new Position[gridNum];
+    Position close[] = new Position[gridNum];//x is used for distance, y is used for storing the ID number.
+    Position nullPos = new Position(-1, -1);//null position
+    */
+    int id;//unique id
+    
+    void setup(float _xpos, float _ypos, float _radius, int _naxNum, int _ID);
+    void draw();
+    void setP(Position _pos);
+    void set(Position _pos);
+    void getDistance();
+    Position compareR(Position _n);
+    void sort();
+    void getClosest();
+    int getId();
+    void drawController();
+    void sendT();
 };
 
 
 /*
  class Modifier {
  
+ 
+ DONE
  //fields
  float x;//x position
  float y;//y position

@@ -10,19 +10,11 @@
 
 void Modifier::setup(float _xpos, float _ypos, float _radius, int _naxNum, int _ID){
     
-    /*
-    x = xpos;
-    y = ypos;
-    p = new Position(xpos, ypos);
-    r = radius;
-    id = ID;
-    for(int i = 0; i<gridNum; i++) {
-        d[i] = new Position(0, 0);
-        close[i] = new Position(0, 0);
-        temp[i] = new Position(0, 0);
-    }
-    */
-    
+    x = _xpos;
+    y = _ypos;
+    p.setup(_xpos, _ypos);
+    r = _radius;
+    id = _ID;
     
     for(int i = 0; i<gridNum; i++) {
         Position tempD;
@@ -36,19 +28,12 @@ void Modifier::setup(float _xpos, float _ypos, float _radius, int _naxNum, int _
         close.push_back(tempClose);
     }
     
-    nullPos.setup(0, 0);
-    
-    /*
-     wrote code equavalent to this in the above: 
-     Position d[] = new Position[gridNum];//for storing the distance of
-     Position temp[] = new Position[gridNum];
-     Position close[] = new Position[gridNum];//x is used for distance, y is used for storing the ID number.
-     Position nullPos = new Position(-1, -1);//null position
-     */
+    nullPos.setup(-1, -1);
+
 }
 
 void Modifier::draw(){
-    /*
+    
      //fill(0, 255, 0);
      //ellipse(x, y, r, r);
      sort();
@@ -56,21 +41,14 @@ void Modifier::draw(){
      sendT();
      //println(d[0].x);
      }
-     
-     void setP(Position pos) {
-     x = p.x;
-     y = p.y;
-     p = new Position(pos);
-     
-     */
-}
 
 void Modifier::setP(Position _pos){
-    /*
+    
+    //is this guy even used?
     x = p.x;
     y = p.y;
-    p = new Position(pos);
-     */
+    p.setup(_pos.x, _pos.y);
+    
 }
 
 void Modifier::set(Position _pos){

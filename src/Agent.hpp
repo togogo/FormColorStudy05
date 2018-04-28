@@ -8,6 +8,7 @@
 #pragma once
 #include "ofMain.h"
 #include "Position.hpp"
+#include "Vec.hpp"
 
 class Agent{
     
@@ -22,9 +23,26 @@ public:
     float a;//angle
     float m;//magnitude
     float maxV;//max magnitude
-    Vector v;//vector
+    Vec v;//vector
     float d;//delayer value for interpolation
     int ID;//unique ID tagged to each of the Agents.
+    
+    void setup(int _id, float _xpos, float _ypos, Position _target, int _delayer, float _maximum);
+    void setup(int _id, float _xpos, float _ypos, int _delayer, float _maximum);
+    void setup(int _id, Position _pos, Position _target, int _delayer, float _maximum);
+    void setup(int _id, Position _pos, int _delayer, float _maximum);
+    void draw();
+    void calculate();
+    void maxVSet(float _maximum);
+    void aSet(float _angle);
+    void tSet(Position _pos);
+    int getID();
+    void fpSet(Position _pos);
+    Position returnNP();
+    float returnNP_x();
+    float returnNP_y();
+
+
     
     
     

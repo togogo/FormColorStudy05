@@ -42,10 +42,6 @@ public:
     float returnNP_x();
     float returnNP_y();
 
-
-    
-    
-    
 };
 
 

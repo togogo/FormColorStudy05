@@ -8,6 +8,7 @@
 #pragma once
 #include "ofMain.h"
 #include "Position.hpp"
+//#include "Vehicle.hpp"
 #include "Vec.hpp"
 
 class Agent{
@@ -17,6 +18,7 @@ public:
     float x;//x-position
     float y;//y-position
     Position fp;//xy-position, front point
+    ofVec2f fpV2f;
     Position np;//xy-position, end point
     Position t;//target postion
     Position intP;//interpolator position
@@ -41,6 +43,7 @@ public:
     Position returnNP();
     float returnNP_x();
     float returnNP_y();
+    //float constrain(float _x, float _a, float _b);//constrains x between a and b
 
 };
 

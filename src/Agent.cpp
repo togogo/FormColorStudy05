@@ -82,13 +82,12 @@ void Agent::calculate() {
     m = dist(fp, t);
     m = constrain(m, 0, maxV);
     
-    /*
     a = getHeading(t, fp);
-    v = new Vector(fp, a, m);
+    Vec v;
+    v.setup(fp.x, fp.y, a, m);
     np = v.endPoint();
     intP.x += interpolator(np.x, intP.x, del);
     intP.y += interpolator(np.y, intP.y, del);
-     */
 }
 
 void Agent::maxVSet(float _maximum){
@@ -126,6 +125,49 @@ float Agent::returnNP_x(){
 }
 float Agent::returnNP_y(){
     return intP.y;
+}
+
+float Agent::interpolator(float _frst, float _scnd, float _delayer) {
+    float returnMe;//value that will be returned
+    returnMe = (_frst - _scnd)/_delayer;
+    return returnMe;
+}
+
+float Agent::getHeading(ofVec2f _p1, ofVec2f _p2){
+    float angle = atan2(_p2.y - _p1.y, _p2.x - _p1.x);
+    angle= -1 * angle * conversionArc;
+    if(_p2.y >= _p1.y){
+        angle = 360 - (angle*-1);
+    }
+    return angle;
+}
+
+float Agent::getHeading(Position _p1, Position _p2){
+    float angle = atan2(_p2.y - _p1.y, _p2.x - _p1.x);
+    angle= -1 * angle * conversionArc;
+    if(_p2.y >= _p1.y){
+        angle = 360 - (angle*-1);
+    }
+    return angle;
+}
+
+float Agent::dist(ofVec2f _p1, ofVec2f _p2){
+    return ofDist(_p1.x, _p1.y, _p2.x, _p2.y);
+}
+
+float Agent::dist(Position _p1, Position _p2){
+    return ofDist(_p1.x, _p1.y, _p2.x, _p2.y);
+}
+
+float Agent::constrain(float _x, float _a, float _b){
+    if(_x < _a) {
+        return _a;
+    }
+    else if(_b < _x) {
+        return _b;
+    }
+    else
+        return _x;
 }
 
 

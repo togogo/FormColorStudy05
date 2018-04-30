@@ -7,9 +7,9 @@
 
 #pragma once
 #include "ofMain.h"
-#include "Position.hpp"
-//#include "Vehicle.hpp"
-#include "Vec.hpp"
+//#include "Position.hpp"
+#include "Vehicle.hpp"
+//#include "Vec.hpp"
 
 class Agent{
     
@@ -28,6 +28,8 @@ public:
     Vec v;//vector
     float d;//delayer value for interpolation
     int ID;//unique ID tagged to each of the Agents.
+    int del = 10;
+    float conversionArc = 180/PI;
     
     void setup(int _id, float _xpos, float _ypos, Position _target, int _delayer, float _maximum);
     void setup(int _id, float _xpos, float _ypos, int _delayer, float _maximum);
@@ -43,7 +45,13 @@ public:
     Position returnNP();
     float returnNP_x();
     float returnNP_y();
-    //float constrain(float _x, float _a, float _b);//constrains x between a and b
+    
+    float constrain(float _x, float _a, float _b);//constrains x between a and b
+    float getHeading(ofVec2f _p1, ofVec2f p2);//gets the absolute heading between one position and another relative to the first
+    float getHeading(Position _p1, Position p2);//gets the absolute heading between one position and another relative to the first
+    float dist(ofVec2f _p1, ofVec2f _p2);
+    float dist(Position _p1, Position _p2);
+    float interpolator(float _frst, float _scnd, float _delayer);
 
 };
 

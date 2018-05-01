@@ -8,6 +8,7 @@
 #pragma once
 #include "ofMain.h"
 #include "Position.hpp"
+#include "Agent.hpp"
 
 class Grid{
     
@@ -19,7 +20,12 @@ public:
     int d;//delayer
     int id;//unique id;
     //Agent agent[] = new Agent[900];//need to implement Agent class
+    vector<Agent> agent;
+    int numAgent = 900;
     
+    void setup(int _w, int _h, int _m, int _delayer);
+    void draw();
+    void deploy();
     
 };
 

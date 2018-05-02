@@ -30,7 +30,7 @@ void Grid::setup(int _w, int _h, int _m, int _delayer){
 
 void Grid::draw(){
     for(int i = 0; i<numGrid; i++) {
-        Position p = new Position(mouseX, mouseY);
+        Position p = new Position(ofGetMouseX(), ofGetMouseY());
         agent[i].maxVSet(maxV);
      //agent[i].aSet(0);
      //agent[i].tSet(p);
@@ -75,7 +75,7 @@ void Grid::draw(){
      //noStroke();
      //noFill();
      //stroke(0, 100);
-     ofFill(255, 255, 255, 50);
+     ofSetColor(255, 255, 255, 50);
      for(int i = 0; i<numGrid - gridWidth - 1; i++) {
      if(i >=0 && i< gridWidth - 1){
      noFill();

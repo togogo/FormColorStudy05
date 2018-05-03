@@ -30,7 +30,8 @@ void Grid::setup(int _w, int _h, int _m, int _delayer){
 
 void Grid::draw(){
     for(int i = 0; i<numGrid; i++) {
-        Position p = new Position(ofGetMouseX(), ofGetMouseY());
+        Position p;
+        p.setup(ofGetMouseX(), ofGetMouseY());
         agent[i].maxVSet(maxV);
      //agent[i].aSet(0);
      //agent[i].tSet(p);
@@ -76,32 +77,34 @@ void Grid::draw(){
      //noFill();
      //stroke(0, 100);
      ofSetColor(255, 255, 255, 50);
-     for(int i = 0; i<numGrid - gridWidth - 1; i++) {
-     if(i >=0 && i< gridWidth - 1){
-     noFill();
-     beginShape(LINE_LOOP);
-     stroke(0,200);
-     vertex(agent[i].intP);
-     stroke(255, 50);
-     vertex(agent[i+1].intP);
-     vertex(agent[i+gridWidth+1].intP);
-     vertex(agent[i+gridWidth].intP);
-     }
+    
+    //shouldn't ofBeginShape() be here though???
+     for(int i = 0; i < numGrid - gridWidth - 1; i++) {
+         if(i >= 0 && i < gridWidth - 1){
+             ofNoFill();
+             ofBeginShape();
+             ofSetColor(0, 0, 0, 200);
+             ofVertex(agent[i].intP.x, agent[i].intP.y);
+             ofSetColor(255, 255, 255, 50);
+             ofVertex(agent[i+1].intP.x, agent[i+1].intP.y);
+             ofVertex(agent[i+gridWidth+1].intP.x, agent[i+gridWidth+1].intP.y);
+             ofVertex(agent[i+gridWidth].intP.x, agent[i+gridWidth].intP.y);
+         }
      for(int j = 2; j<=gridWidth; j++) {
-     if(i >=gridWidth*(j-1) && i< gridWidth*j- 1){
-     beginShape(LINE_LOOP);
-     //fill(0,100);
-     stroke(0,200);
-     vertex(agent[i].intP);
-     //fill(255,100);
-     stroke(255,50);
-     vertex(agent[i+1].intP);
-     vertex(agent[i+gridWidth+1].intP);
-     vertex(agent[i+gridWidth].intP);
+         if(i >= gridWidth*(j - 1) && i < gridWidth*j - 1){
+             ofBeginShape();
+             //fill(0,100);
+             ofSetColor(0, 0, 0, 200);
+             ofVertex(agent[i].intP.x, agent[i].intP.y);
+             //fill(255,100);
+             ofSetColor(255, 255, 255, 50);
+             ofVertex(agent[i+1].intP.x, agent[i+1].intP.y);
+             ofVertex(agent[i+gridWidth+1].intP.x, agent[i+gridWidth+1].intP.y);
+             ofVertex(agent[i+gridWidth].intP.x, agent[i+gridWidth].intP.y);
+         }
      }
-     }
-     endShape();
-     
+     ofEndShape();
+         
      }
      //draw vertical lines
      //for(int i = 0; i<numGrid - 3*gridWidth; i++) {
@@ -115,8 +118,6 @@ void Grid::draw(){
      
      //fill(255, 0, 0);
      //ellipse(agent[99].fp.x, agent[99].fp.y, 5 , 5);
-     
-    
     
 }
 

@@ -8,6 +8,7 @@
 #pragma once
 #include "ofMain.h"
 #include "Position.hpp"
+#include "Grid.hpp"
 
 class Modifier{
 
@@ -30,6 +31,14 @@ public:
     Position nullPos = new Position(-1, -1);//null position
     */
     int id;//unique id
+    
+    Grid grid;
+    Grid grid2;
+    int del = 10;
+    
+    int gridWidth = 30;
+    int gridHeight = 30;
+    int numGrid = gridWidth*gridHeight;
     
     void setup(float _xpos, float _ypos, float _radius, int _naxNum, int _ID);
     void draw();

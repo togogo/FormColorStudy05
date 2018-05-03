@@ -10,6 +10,9 @@
 
 void Modifier::setup(float _xpos, float _ypos, float _radius, int _naxNum, int _ID){
     
+    //I don't know if this will work...
+    grid.setup(gridWidth, gridHeight, 30, del);
+    grid2.setup(gridWidth, gridHeight, 30, del/2);
     x = _xpos;
     y = _ypos;
     p.setup(_xpos, _ypos);
@@ -56,42 +59,40 @@ void Modifier::set(Position _pos){
 }
 
 void Modifier::getDistance(){
-    /*
-     for(int i = 0; i<numGrid; i++) {
-     d[i].x = dist(p, grid.agent[i].fp);
-     d[i].y = grid.agent[i].getID();
+    
+     for(int i = 0; i < numGrid; i++) {
+         d[i].x = ofDist(p.x, p.y, grid.agent[i].fp.x, grid.agent[i].fp.y);
+         d[i].y = grid.agent[i].getID();
      }
-     */
+    
 }
 
 
 Position Modifier::compareR(Position _n){
     
-    /*
-     if(r/2 >= n.x) {
+    
+     if(r/2 >= _n.x) {
      //println(n.y);
      //fill(0, 0, 255);
      //rect(grid.agent[(int)n.y].fp.x, grid.agent[(int)n.y].fp.y, 10, 10);
      //println("yay");
-     return n;
+         return _n;
      }
      else
      return nullPos;
-     */
+    
     
 }
 
 void Modifier::sort(){
-    /*
     getDistance();
-    for(int i = 0; i<gridNum; i++) {
-        close[i].set(compareR(d[i]));
+    for(int i = 0; i < gridNum; i++) {
+        close[i].setup(compareR(d[i]));
     }
-     */
 }
 
 void Modifier::getClosest(){
-    /*
+    
     getDistance();
     //println(sort().x);
     
@@ -113,8 +114,7 @@ void Modifier::getClosest(){
      //println(grid.agent[(int)closest.y].getID());
      //}
      //}
-     
-     */
+    
     
 }
 
@@ -123,17 +123,17 @@ int Modifier::getId(){
 }
 
 void Modifier::drawController(){
-    /*
-     noFill();
-     stroke(255, 0, 0);
+    
+     ofNoFill();
+     ofSetColor(255, 0, 0);
      //ellipse(p.x, p.y, 10, 10);
-     */
+    
 }
 
 void Modifier::sendT(){
-    /*
+    
     //println(closest.y);
-    for(int i = 0; i<gridNum; i++) {
+    for(int i = 0; i < gridNum; i++) {
         if((int)close[i].y > 0) {
             grid.agent[(int)close[i].y].tSet(p);
             grid2.agent[(int)close[i].y].tSet(p);
@@ -143,7 +143,7 @@ void Modifier::sendT(){
             //println("yay");
         }
     }
-     */
+    
 }
 
 

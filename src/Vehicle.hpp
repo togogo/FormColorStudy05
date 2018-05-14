@@ -41,7 +41,8 @@ public:
     ofVec2f sort();//changed return type to ofvec2f. Originally Position.
     void updateController();
     void getDistance();
-    ofVec2f compare(Position m, Position n);//changed return type to ofvec2f. Originally Position.
+    Position compare(Position _m, Position _n);//changed return type to ofvec2f. Originally Position.
+    ofVec2f compare(ofVec2f _m, ofVec2f _n);//changed return type to ofvec2f. Originally Position.
     void rapController();
     float constrain(float _x, float _a, float _b);//constrains x between a and b
     

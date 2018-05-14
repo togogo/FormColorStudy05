@@ -119,17 +119,18 @@ void Vehicle::drawAllVectors(){
 }
 
 void Vehicle::drawVehicle(){
-    /*
-     stroke(255);
+    
+     //stroke(255);
      //line(location.displace(velocity.a,vSize).x,location.displace(velocity.a,vSize).y,location.displace(velocity.a,-1*vSize).x,location.displace(velocity.a,-1*vSize).y);
      //ellipseMode(CENTER);
      //noStroke();
      //fill(light_orange);
-     rect(location.x,location.y, 2, 2);
+    ofSetColor(255);
+     ofDrawRectangle(location.x,location.y, 10, 10);
      //println(location.x);
-     //fill(255, 0, acceleration.m);
-     //ellipse(location.x, location.y, rad, rad);
-     */
+     ofSetColor(255, 0, acceleration.m);
+     ofDrawCircle(location.x, location.y, rad, rad);
+    
 }
 
 void Vehicle::drawController(){
@@ -144,13 +145,11 @@ void Vehicle::drawController(){
 }
 
 ofVec2f Vehicle::sort(){
-    /*
-     temp = compare(d[1], d[2]);
-     for(int i =  3; i<contNum; i++) {
-     temp = compare(temp, d[i]);
+    temp = compare(d[1], d[2]);
+    for(int i =  3; i<contNum; i++){
+        temp = compare(temp, d[i]);
      }
      return temp;
-     */
 }
 
 void Vehicle::updateController(){
@@ -188,17 +187,36 @@ void Vehicle::getDistance(){
 
 }
 
-ofVec2f Vehicle::compare(Position m, Position n){
-    /*
-     if(m.x > n.x) {
-     return n;
+Position Vehicle::compare(Position _m, Position _n){
+    if(_m.x > _n.x) {
+        return _n;
+        
+    }
+    if(_m.x < _n.x) {
+        return _m;
      }
-     if(m.x < n.x) {
-     return m;
-     }
-     else
-     return null;
-     */
+    else{
+        Position returnP;
+        returnP.setup(0, 0);
+        return returnP;
+    }
+    
+}
+
+ofVec2f Vehicle::compare(ofVec2f _m, ofVec2f _n){
+    if(_m.x > _n.x) {
+        return _n;
+    }
+    if(_m.x < _n.x) {
+        return _m;
+    }
+    else{
+        ofVec2f returnVec2f;
+        returnVec2f.set(0, 0);
+        return returnVec2f;
+    }
+
+    
 }
 
 void Vehicle::rapController(){

@@ -43,6 +43,10 @@ class ofApp : public ofBaseApp{
     Modifier testMod2;
     Modifier testMod3;
     
+    Vehicle testVehicle1;
+    Vehicle testVehicle2;
+    Vehicle testVehicle3;
+    
     
     /*
      //should look into this stuff???

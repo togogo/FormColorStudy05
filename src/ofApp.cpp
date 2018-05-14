@@ -13,14 +13,28 @@
  I did visualize Modifer and Grid.
  Nothing really happens.
  
+ ..
+ 
+ Maybe I instantiate Vehicle class and things will change???
+ Ohhh.... yes I need to finish implementing some parts of Vehicle Class...
+ 
  */
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     testGrid.setup(30, 30, 10, 30);
+    
     testMod1.setup((int)ofRandom(0, ofGetWidth()), (int)ofRandom(0, ofGetHeight()), (int)ofRandom(100, 300), 100, 1);
     testMod2.setup((int)ofRandom(0, ofGetWidth()), (int)ofRandom(0, ofGetHeight()), (int)ofRandom(100, 300), 100, 2);
     testMod3.setup((int)ofRandom(0, ofGetWidth()), (int)ofRandom(0, ofGetHeight()), (int)ofRandom(100, 300), 100, 3);
+    
+    ofVec2f _in1, _in2, _in3;
+    _in1.set(ofRandom(0, ofGetWidth()), ofRandom(0, ofGetHeight()));
+    _in2.set(ofRandom(0, ofGetWidth()), ofRandom(0, ofGetHeight()));
+    _in3.set(ofRandom(0, ofGetWidth()), ofRandom(0, ofGetHeight()));
+    testVehicle1.setup(_in1, PI/2, 5, 20, 1, 2, 40);
+    testVehicle2.setup(_in2, PI/2, 5, 20, 1, 2, 40);
+    testVehicle3.setup(_in3, PI/2, 5, 20, 1, 2, 40);
 }
 
 //--------------------------------------------------------------
@@ -37,6 +51,11 @@ void ofApp::draw(){
     testMod1.drawController();
     testMod2.drawController();
     testMod3.drawController();
+    
+    testVehicle1.drawVehicle();
+    testVehicle2.drawVehicle();
+    testVehicle3.drawVehicle();
+    
     /*
     //base circle
     

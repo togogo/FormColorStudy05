@@ -126,7 +126,7 @@ void Modifier::drawController(){
     
      ofNoFill();
      ofSetColor(255, 0, 0);
-     //ellipse(p.x, p.y, 10, 10);
+     ofDrawCircle(p.x, p.y, 10);
     
 }
 

@@ -6,9 +6,11 @@
 //
 
 #pragma once
-#include "ofMain.h"
 #include "Position.hpp"
 #include "Agent.hpp"
+//#include "ofMain.h"
+
+
 
 class Grid{
     

@@ -6,10 +6,10 @@
 //
 
 #pragma once
-#include "ofMain.h"
-//#include "Position.hpp"
 #include "Vehicle.hpp"
-//#include "Vec.hpp"
+//#include "ofMain.h"
+//#include "Position.hpp"
+#include "Vec.hpp"
 
 class Agent{
     

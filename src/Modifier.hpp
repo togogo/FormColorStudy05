@@ -6,8 +6,8 @@
 //
 
 #pragma once
-#include "ofMain.h"
 #include "Position.hpp"
+//#include "ofMain.h"
 #include "Grid.hpp"
 
 class Modifier{

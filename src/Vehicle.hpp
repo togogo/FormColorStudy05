@@ -6,8 +6,10 @@
 //
 
 #pragma once
-#include "ofMain.h"
+#include "Modifier.hpp"
 #include "Vec.hpp"
+//#include "ofMain.h"
+
 
 class Vehicle{
 public:
@@ -48,6 +50,7 @@ public:
     
     
     //Modifier m[] = new Modifier[contNum]; //there is still this guy I need to work on.
+    //vector<Modifier> m;
     
     
     
